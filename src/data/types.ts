@@ -37,6 +37,11 @@ export interface Skill {
   icon: string;
 }
 
+export interface SkillGroup {
+  title: string;
+  skills: Skill[];
+}
+
 export interface Social {
   label: string;
   url: string;

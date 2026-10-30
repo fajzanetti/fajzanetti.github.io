@@ -6,8 +6,9 @@ export const experience: Experience[] = [
     company: 'Betting Software',
     location: 'Vitória da Conquista/BA · Remoto',
     description: [
-      'Aplicações whitelabel multi-tenant com Next.js 15, React 19, TypeScript e Tailwind CSS.',
-      'GraphQL com Apollo Client, Redux Toolkit, atualizações em tempo real com Pusher e testes com Vitest e React Testing Library.',
+      'Aplicações whitelabel multi-tenant com Next.js 15, React 19, TypeScript, Tailwind CSS e HeroUI, publicadas em Cloudflare Workers.',
+      'Jogos em canvas com Svelte 5, SvelteKit, PixiJS e Spine, com máquinas de estado em XState e monorepo com pnpm e Turborepo.',
+      'GraphQL com Apollo Client, Redux Toolkit, tempo real com Pusher e testes com Vitest, Testing Library, Cypress e Chromatic.',
       'Foco em performance (code splitting, cache, otimização de imagens) e SEO com SSR, SSG e ISR.',
     ],
     periods: [{ start: 'Set 2024', end: 'Atual' }],

@@ -7,7 +7,7 @@ export const profile: Profile = {
   city: 'Monte Carmelo/MG',
   email: 'felipeajzanetti@gmail.com',
   summary: [
-    'Desenvolvedor front-end desde 2020, com foco em React, Next.js, TypeScript e React Native.',
+    'Desenvolvedor front-end desde 2020. Trabalho com React, Next.js, Svelte, TypeScript e React Native.',
     'Bacharel em Sistemas de Informação pela Universidade Federal de Uberlândia.',
   ],
   interests:
