@@ -3,17 +3,35 @@ import type { Experience } from './types';
 export const experience: Experience[] = [
   {
     role: 'Desenvolvedor Front-end',
-    company: 'Codificar Sistemas Tecnológicos',
-    location: 'Belo Horizonte/MG',
-    description: 'Desenvolvimento front-end e mobile em produtos da empresa com ReactJS, React Native e Vue.js.',
-    periods: [{ start: '2021', end: 'Atual' }],
+    company: 'Betting Software',
+    location: 'Vitória da Conquista/BA · Remoto',
+    description: [
+      'Aplicações whitelabel multi-tenant com Next.js 15, React 19, TypeScript e Tailwind CSS.',
+      'GraphQL com Apollo Client, Redux Toolkit, atualizações em tempo real com Pusher e testes com Vitest e React Testing Library.',
+      'Foco em performance (code splitting, cache, otimização de imagens) e SEO com SSR, SSG e ISR.',
+    ],
+    periods: [{ start: 'Set 2024', end: 'Atual' }],
   },
   {
-    role: 'Estagiário em Desenvolvimento Front-end',
+    role: 'Desenvolvedor Front-end Pleno',
     company: 'Codificar Sistemas Tecnológicos',
-    location: 'Belo Horizonte/MG',
-    description: 'Estágio em desenvolvimento front-end e mobile, 30 horas semanais.',
-    periods: [{ start: '2020', end: '2021' }],
+    location: 'Remoto',
+    description: 'Desenvolvimento de aplicativos com React Native e JavaScript.',
+    periods: [{ start: 'Jan 2023', end: 'Set 2024' }],
+  },
+  {
+    role: 'Desenvolvedor Front-end Júnior',
+    company: 'Codificar Sistemas Tecnológicos',
+    location: 'Remoto',
+    description: 'Desenvolvimento mobile com React Native e Android.',
+    periods: [{ start: 'Ago 2021', end: 'Jan 2023' }],
+  },
+  {
+    role: 'Estagiário em Desenvolvimento',
+    company: 'Codificar Sistemas Tecnológicos',
+    location: 'Remoto',
+    description: 'Estágio em desenvolvimento mobile com React Native e JavaScript.',
+    periods: [{ start: 'Ago 2020', end: 'Ago 2021' }],
   },
   {
     role: 'Monitor de Introdução à Programação de Computadores',

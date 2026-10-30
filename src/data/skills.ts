@@ -1,15 +1,18 @@
 import type { Skill } from './types';
 
 export const skills: Skill[] = [
-  { name: 'JavaScript', icon: 'mdi:language-javascript' },
-  { name: 'TypeScript', icon: 'mdi:language-typescript' },
-  { name: 'ReactJS', icon: 'mdi:react' },
+  { name: 'TypeScript', icon: 'simple-icons:typescript' },
+  { name: 'JavaScript', icon: 'simple-icons:javascript' },
+  { name: 'React', icon: 'simple-icons:react' },
+  { name: 'Next.js', icon: 'simple-icons:nextdotjs' },
   { name: 'React Native', icon: 'mdi:cellphone' },
-  { name: 'Vue.js', icon: 'mdi:vuejs' },
-  { name: 'Node.js', icon: 'mdi:nodejs' },
-  { name: 'HTML5', icon: 'mdi:language-html5' },
-  { name: 'CSS3', icon: 'mdi:language-css3' },
-  { name: 'Git', icon: 'mdi:git' },
-  { name: 'Android', icon: 'mdi:android' },
+  { name: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+  { name: 'GraphQL', icon: 'simple-icons:graphql' },
+  { name: 'Apollo Client', icon: 'simple-icons:apollographql' },
+  { name: 'Redux Toolkit', icon: 'simple-icons:redux' },
+  { name: 'Vitest', icon: 'simple-icons:vitest' },
+  { name: 'Node.js', icon: 'simple-icons:nodedotjs' },
+  { name: 'Vue.js', icon: 'simple-icons:vuedotjs' },
+  { name: 'Git', icon: 'simple-icons:git' },
+  { name: 'Android', icon: 'simple-icons:android' },
 ];
-

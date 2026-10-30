@@ -3,12 +3,12 @@ import type { Profile } from './types';
 export const profile: Profile = {
   firstName: 'Felipe',
   lastName: 'Zanetti',
-  title: 'Desenvolvedor Front-end e Mobile',
+  title: 'Desenvolvedor Front-end',
   city: 'Monte Carmelo/MG',
   email: 'felipeajzanetti@gmail.com',
   summary: [
+    'Desenvolvedor front-end desde 2020, com foco em React, Next.js, TypeScript e React Native.',
     'Bacharel em Sistemas de Informação pela Universidade Federal de Uberlândia.',
-    'Experiência em desenvolvimento front-end e mobile com JavaScript, TypeScript, ReactJS, React Native e Vue.js.',
   ],
   interests:
     'Meus passatempos são: codar coisas aleatórias por diversão, jogar videogame, ir ao cinema, brincar com minhas cachorrinhas, fazer aquele churrasco com amigos e família e de vez em quando ficar observando as estrelas.',
