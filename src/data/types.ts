@@ -73,6 +73,7 @@ export interface Project {
   links: Link[];
   image?: ImageMetadata;
   imageAlt?: string;
+  logo?: ImageMetadata;
   /** aparece no lugar dos links quando o código é fechado */
   note?: string;
 }

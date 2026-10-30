@@ -1,5 +1,6 @@
 import type { Project } from './types';
 import sonorifyLogo from '../assets/projects/sonorify-logo.svg';
+import sonorifyEstudio from '../assets/projects/sonorify-estudio.png';
 import uaifmApp from '../assets/projects/uaifm-app.png';
 import uaifmSite from '../assets/projects/uaifm-site.png';
 
@@ -18,8 +19,9 @@ export const featuredProject: Project = {
   period: { start: '2026', end: 'Atual' },
   stack: ['Rust', 'Tauri 2', 'React 19', 'TypeScript', 'SQLite', 'cpal', 'symphonia', 'Vite', 'Vitest', 'GitHub Actions'],
   links: [],
-  image: sonorifyLogo,
-  imageAlt: 'Logo do Sonorify',
+  image: sonorifyEstudio,
+  imageAlt: 'Tela Estúdio do Sonorify com blocos comercial e musical, medidores PGM, biblioteca e players manuais',
+  logo: sonorifyLogo,
   note: 'Código privado. Em uso no estúdio da UAI FM.',
 };
 
