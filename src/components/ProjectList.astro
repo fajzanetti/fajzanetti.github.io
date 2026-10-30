@@ -1,0 +1,16 @@
+---
+import { featuredProject, projects, projectsIntro } from '../data/projects';
+import ProjectCard from './ProjectCard.astro';
+import ProjectFeatured from './ProjectFeatured.astro';
+import Section from './Section.astro';
+---
+
+<Section id="projetos" title="Projetos">
+  <p class="-mt-6 mb-8 max-w-[620px] text-lg text-muted">{projectsIntro}</p>
+  <ProjectFeatured project={featuredProject} />
+  <div class="mt-5 grid gap-5 md:grid-cols-3">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </div>
+</Section>
