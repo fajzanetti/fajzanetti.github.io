@@ -1,11 +1,14 @@
 ---
+import type { Link } from '../data/types';
+
 interface Props {
   title: string;
   subtitle: string;
   dates: string[];
   description?: string | string[];
+  link?: Link;
 }
-const { title, subtitle, dates, description } = Astro.props;
+const { title, subtitle, dates, description, link } = Astro.props;
 const paragraphs = Array.isArray(description) ? description : description ? [description] : [];
 ---
 
@@ -17,5 +20,15 @@ const paragraphs = Array.isArray(description) ? description : description ? [des
     <h3 class="text-[22px] leading-snug">{title}</h3>
     <p class="mt-1 text-[15px] text-muted">{subtitle}</p>
     {paragraphs.map((text) => <p class="mt-2 text-muted">{text}</p>)}
+    {link && (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-2 inline-block text-sm font-bold text-accent underline underline-offset-2 hover:text-text"
+      >
+        {link.label}
+      </a>
+    )}
   </div>
 </article>

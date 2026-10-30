@@ -11,11 +11,17 @@ export interface Experience {
   periods: Period[];
 }
 
+export interface Link {
+  label: string;
+  url: string;
+}
+
 export interface Education {
   institution: string;
   degree: string;
   period: Period;
   note?: string;
+  link?: Link;
 }
 
 export interface Course {
