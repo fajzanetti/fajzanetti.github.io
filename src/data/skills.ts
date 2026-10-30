@@ -1,14 +1,21 @@
-import type { SkillGroup } from './types';
+import type { Skill, SkillGroup } from './types';
 
-export const skillGroups: SkillGroup[] = [
+export const mainStack: Skill[] = [
+  { name: 'TypeScript', icon: 'simple-icons:typescript' },
+  { name: 'React', icon: 'simple-icons:react' },
+  { name: 'Next.js', icon: 'simple-icons:nextdotjs' },
+  { name: 'Svelte', icon: 'simple-icons:svelte' },
+  { name: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+  { name: 'GraphQL', icon: 'simple-icons:graphql' },
+  { name: 'Redux Toolkit', icon: 'simple-icons:redux' },
+  { name: 'Vitest', icon: 'simple-icons:vitest' },
+];
+
+export const otherSkills: SkillGroup[] = [
   {
     title: 'Linguagens e frameworks',
     skills: [
-      { name: 'TypeScript', icon: 'simple-icons:typescript' },
       { name: 'JavaScript', icon: 'simple-icons:javascript' },
-      { name: 'React', icon: 'simple-icons:react' },
-      { name: 'Next.js', icon: 'simple-icons:nextdotjs' },
-      { name: 'Svelte', icon: 'simple-icons:svelte' },
       { name: 'SvelteKit', icon: 'simple-icons:svelte' },
       { name: 'React Native', icon: 'mdi:cellphone' },
       { name: 'Node.js', icon: 'simple-icons:nodedotjs' },
@@ -18,18 +25,15 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Estado e dados',
     skills: [
-      { name: 'GraphQL', icon: 'simple-icons:graphql' },
       { name: 'Apollo Client', icon: 'simple-icons:apollographql' },
-      { name: 'Redux Toolkit', icon: 'simple-icons:redux' },
       { name: 'XState', icon: 'simple-icons:xstate' },
       { name: 'Pusher', icon: 'simple-icons:pusher' },
       { name: 'Meilisearch', icon: 'simple-icons:meilisearch' },
     ],
   },
   {
-    title: 'UI, estilo e animação',
+    title: 'UI e animação',
     skills: [
-      { name: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
       { name: 'HeroUI', icon: 'simple-icons:heroui' },
       { name: 'Sass', icon: 'simple-icons:sass' },
       { name: 'Framer Motion', icon: 'simple-icons:framer' },
@@ -49,7 +53,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Testes e qualidade',
     skills: [
-      { name: 'Vitest', icon: 'simple-icons:vitest' },
       { name: 'Testing Library', icon: 'simple-icons:testinglibrary' },
       { name: 'Cypress', icon: 'simple-icons:cypress' },
       { name: 'Chromatic', icon: 'simple-icons:chromatic' },
