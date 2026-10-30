@@ -1,0 +1,17 @@
+---
+import { experience } from '../data/experience';
+import { formatPeriod } from '../lib/format';
+import ResumeItem from './ResumeItem.astro';
+import Section from './Section.astro';
+---
+
+<Section id="experiencias" title="Experiências">
+  {experience.map((item) => (
+    <ResumeItem
+      title={item.role}
+      subtitle={[item.company, item.location].filter(Boolean).join(' · ')}
+      dates={item.periods.map(formatPeriod)}
+      description={item.description}
+    />
+  ))}
+</Section>

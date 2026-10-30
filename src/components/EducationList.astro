@@ -1,0 +1,18 @@
+---
+import { education } from '../data/education';
+import { formatPeriod } from '../lib/format';
+import ResumeItem from './ResumeItem.astro';
+import Section from './Section.astro';
+---
+
+<Section id="educacao" title="Educação">
+  {education.map((item) => (
+    <ResumeItem
+      title={item.degree}
+      subtitle={item.institution}
+      dates={[formatPeriod(item.period)]}
+      description={item.note}
+      link={item.link}
+    />
+  ))}
+</Section>

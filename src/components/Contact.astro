@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+import { profile } from '../data/profile';
+import Section from './Section.astro';
+
+const cards = [
+  { label: 'E-mail', detail: profile.email, url: `mailto:${profile.email}`, icon: 'mdi:email-outline', external: false },
+  ...profile.socials
+    .filter((social) => social.primary)
+    .map((social) => ({
+      label: social.label,
+      detail: new URL(social.url).pathname.replace(/\/$/, ''),
+      url: social.url,
+      icon: social.icon,
+      external: true,
+    })),
+];
+---
+
+<Section id="contato" title="Contato">
+  <ul class="grid gap-4 md:grid-cols-3">
+    {cards.map(({ label, detail, url, icon, external }) => (
+      <li>
+        <a
+          href={url}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
+          class="block rounded-xl border border-rule bg-surface p-5 transition-colors hover:border-accent"
+        >
+          <span class="flex items-center gap-2 font-bold">
+            <Icon name={icon} class="size-5 text-accent" aria-hidden="true" />
+            {label}
+          </span>
+          <span class="mt-1 block text-sm break-all text-muted">{detail}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Section>
