@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ExperienceList from '../components/ExperienceList.astro';
+import ProjectList from '../components/ProjectList.astro';
 import EducationList from '../components/EducationList.astro';
 import CourseList from '../components/CourseList.astro';
 import SkillList from '../components/SkillList.astro';
@@ -16,6 +17,7 @@ const description = `Currículo de ${profile.firstName} ${profile.lastName}, ${p
 <BaseLayout title={title} description={description}>
   <Hero />
   <ExperienceList />
+  <ProjectList />
   <EducationList />
   <CourseList />
   <SkillList />

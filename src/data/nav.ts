@@ -3,6 +3,7 @@ import type { NavItem } from './types';
 export const nav: NavItem[] = [
   { id: 'sobre', label: 'Sobre' },
   { id: 'experiencias', label: 'Experiências' },
+  { id: 'projetos', label: 'Projetos' },
   { id: 'educacao', label: 'Educação' },
   { id: 'formacao', label: 'Formação' },
   { id: 'habilidades', label: 'Habilidades' },

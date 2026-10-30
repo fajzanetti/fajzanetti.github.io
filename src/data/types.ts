@@ -1,3 +1,5 @@
+import type { ImageMetadata } from 'astro';
+
 export interface Period {
   start: string;
   end?: string;
@@ -60,6 +62,19 @@ export interface Profile {
   interests: string;
   socials: Social[];
   cvPath: string;
+}
+
+export interface Project {
+  name: string;
+  tagline: string;
+  description: string[];
+  period: Period;
+  stack: string[];
+  links: Link[];
+  image?: ImageMetadata;
+  imageAlt?: string;
+  /** aparece no lugar dos links quando o código é fechado */
+  note?: string;
 }
 
 export interface NavItem {

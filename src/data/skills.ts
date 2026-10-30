@@ -51,6 +51,16 @@ export const otherSkills: SkillGroup[] = [
     ],
   },
   {
+    title: 'Desktop e áudio',
+    skills: [
+      { name: 'Rust', icon: 'simple-icons:rust' },
+      { name: 'Tauri', icon: 'simple-icons:tauri' },
+      { name: 'SQLite', icon: 'simple-icons:sqlite' },
+      { name: 'cpal', icon: 'mdi:waveform' },
+      { name: 'symphonia', icon: 'mdi:music-note' },
+    ],
+  },
+  {
     title: 'Testes e qualidade',
     skills: [
       { name: 'Testing Library', icon: 'simple-icons:testinglibrary' },
