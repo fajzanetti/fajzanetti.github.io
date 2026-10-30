@@ -3,7 +3,7 @@ import type { Experience } from './types';
 export const experience: Experience[] = [
   {
     role: 'Desenvolvedor Front-end',
-    company: 'Betting Software',
+    company: 'Cods.dev',
     location: 'Vitória da Conquista/BA · Remoto',
     description: [
       'Aplicações whitelabel multi-tenant com Next.js 15, React 19, TypeScript, Tailwind CSS e HeroUI, publicadas em Cloudflare Workers.',
