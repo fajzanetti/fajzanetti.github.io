@@ -15,6 +15,7 @@ export interface Education {
   institution: string;
   degree: string;
   period: Period;
+  note?: string;
 }
 
 export interface Course {

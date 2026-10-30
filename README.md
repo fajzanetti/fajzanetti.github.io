@@ -30,10 +30,16 @@ Todo o texto fica em `src/data/`. Os componentes não contêm texto.
 
 Ícones usam nomes do [Iconify](https://icon-sets.iconify.design/mdi/), por exemplo `mdi:react`.
 
-## Arquivos a substituir
+## Currículo em PDF
 
-- `public/cv.pdf`: currículo em PDF. O arquivo atual é um placeholder.
-- `src/assets/avatar.png`: foto de perfil.
+O fonte é `cv/cv.html`, com a mesma identidade visual do site. Edite o HTML e gere o PDF:
+
+```bash
+google-chrome --headless=new --disable-gpu --no-pdf-header-footer \
+  --virtual-time-budget=8000 --print-to-pdf=public/cv.pdf "file://$PWD/cv/cv.html"
+```
+
+A foto de perfil fica em `src/assets/avatar.png`.
 
 ## Deploy
 

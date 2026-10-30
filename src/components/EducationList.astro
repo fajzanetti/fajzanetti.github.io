@@ -7,6 +7,11 @@ import Section from './Section.astro';
 
 <Section id="educacao" title="Educação">
   {education.map((item) => (
-    <ResumeItem title={item.institution} subtitle={item.degree} dates={[formatPeriod(item.period)]} />
+    <ResumeItem
+      title={item.degree}
+      subtitle={item.institution}
+      dates={[formatPeriod(item.period)]}
+      description={item.note}
+    />
   ))}
 </Section>
