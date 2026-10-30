@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ExperienceList from '../components/ExperienceList.astro';
+import EducationList from '../components/EducationList.astro';
+import CourseList from '../components/CourseList.astro';
+import SkillList from '../components/SkillList.astro';
+import Interests from '../components/Interests.astro';
+import Contact from '../components/Contact.astro';
+import { profile } from '../data/profile';
+
+const title = `${profile.firstName} ${profile.lastName} · ${profile.title}`;
+const description = `Currículo de ${profile.firstName} ${profile.lastName}, ${profile.title.toLowerCase()} em ${profile.city}. Experiências, formação, habilidades e contato.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero />
+  <ExperienceList />
+  <EducationList />
+  <CourseList />
+  <SkillList />
+  <Interests />
+  <Contact />
+</BaseLayout>

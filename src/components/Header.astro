@@ -1,0 +1,25 @@
+---
+import { profile } from '../data/profile';
+import { nav } from '../data/nav';
+---
+
+<header class="sticky top-0 z-10 border-b border-rule bg-bg/95 backdrop-blur">
+  <div class="mx-auto flex max-w-[880px] items-center justify-between gap-6 px-6 py-4 md:py-6">
+    <a href="#sobre" class="shrink-0 font-heading text-xl font-bold whitespace-nowrap text-text">
+      {profile.firstName} {profile.lastName}
+    </a>
+    <nav aria-label="Seções">
+      <ul class="flex gap-4 overflow-x-auto text-sm font-bold whitespace-nowrap md:gap-6">
+        {nav.map(({ id, label }) => (
+          <li>
+            <a href={`#${id}`} class="text-muted transition-colors hover:text-accent aria-[current=page]:text-accent">
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script src="../scripts/scrollspy.ts"></script>

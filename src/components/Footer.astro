@@ -1,0 +1,11 @@
+---
+import { profile } from '../data/profile';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-rule">
+  <div class="mx-auto max-w-[880px] px-6 py-10 text-sm text-muted">
+    © {year} {profile.firstName} {profile.lastName} · Feito com
+    <a href="https://astro.build" class="text-accent underline underline-offset-2 hover:text-text" target="_blank" rel="noopener noreferrer">Astro</a>
+  </div>
+</footer>

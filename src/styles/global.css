@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #fbfaf7;
+  --color-surface: #ffffff;
+  --color-text: #1c1f1d;
+  --color-muted: #5b625e;
+  /* #0a7f36 passa AA (4.9:1) em texto pequeno sobre --color-bg */
+  --color-accent: #0a7f36;
+  --color-accent-bright: #0c9c42;
+  --color-accent-soft: #e4f6ea;
+  --color-rule: #e2e4e1;
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "Mulish", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-bg text-text font-body leading-relaxed antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-heading font-bold tracking-tight;
+  }
+  /* compensa a altura do header fixo ao navegar por âncora */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}

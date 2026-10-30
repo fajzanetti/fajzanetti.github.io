@@ -1,0 +1,17 @@
+---
+import { courses } from '../data/courses';
+import { formatCoursePeriod } from '../lib/format';
+import ResumeItem from './ResumeItem.astro';
+import Section from './Section.astro';
+---
+
+<Section id="formacao" title="Formação complementar">
+  {courses.map((item) => (
+    <ResumeItem
+      title={item.title}
+      subtitle={item.institution}
+      dates={[formatCoursePeriod(item.period, item.hours)]}
+      description={item.description}
+    />
+  ))}
+</Section>
