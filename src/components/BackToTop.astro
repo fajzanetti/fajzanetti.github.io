@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<a
+  id="back-to-top"
+  href="#sobre"
+  aria-label="Voltar ao início"
+  class="fixed right-5 bottom-5 z-10 flex size-11 translate-y-4 items-center justify-center rounded-full border border-rule bg-surface text-text opacity-0 shadow-md transition-[opacity,transform,color,border-color] duration-300 hover:border-accent hover:text-accent aria-hidden:pointer-events-none md:right-8 md:bottom-8"
+  aria-hidden="true"
+  data-print="hide"
+>
+  <Icon name="mdi:arrow-up" class="size-5" aria-hidden="true" />
+</a>
+
+<script src="../scripts/back-to-top.ts"></script>
