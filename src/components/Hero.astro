@@ -4,37 +4,68 @@ import { Icon } from 'astro-icon/components';
 import avatar from '../assets/avatar.png';
 import { profile } from '../data/profile';
 import SocialLinks from './SocialLinks.astro';
+
+const [lead, ...details] = profile.summary;
 ---
 
-<section id="sobre" class="py-14 md:py-24">
-  <div class="flex flex-col-reverse gap-10 md:flex-row md:items-center md:justify-between">
-    <div>
-      <h1 class="text-5xl leading-none font-semibold md:text-7xl lg:text-[88px]">
+<!-- a altura desconta o header fixo para a seção fechar na primeira dobra -->
+<section id="sobre" class="flex min-h-[calc(100svh-3.25rem)] flex-col md:min-h-[calc(100svh-4.25rem)]">
+  <div class="flex flex-1 flex-col-reverse justify-center gap-12 py-12 md:flex-row md:items-center md:gap-16 md:py-16">
+    <div class="max-w-[580px]">
+      <p class="text-sm font-bold tracking-widest text-accent uppercase">
+        {profile.title} · {profile.city}
+      </p>
+      <h1 class="mt-4 text-5xl leading-none font-semibold md:text-7xl lg:text-[88px]">
         {profile.firstName} <em class="text-accent-bright">{profile.lastName}</em>
       </h1>
-      <p class="mt-5 text-xl text-muted">{profile.title} — {profile.city}</p>
-      <div class="mt-7 max-w-[620px] text-lg">
-        {profile.summary.map((text) => <p>{text}</p>)}
+
+      <p class="mt-8 text-xl leading-snug font-medium md:text-2xl">{lead}</p>
+      <div class="mt-5 space-y-3 text-[17px] leading-relaxed text-muted">
+        {details.map((text) => <p>{text}</p>)}
       </div>
-      <div class="mt-8 flex flex-wrap items-center gap-6">
+
+      <div class="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5" data-print="hide">
         <a
           href={profile.cvPath}
           download
-          class="inline-flex items-center gap-2 rounded-full border-[1.5px] border-text px-5 py-3 text-sm font-bold text-text transition-colors hover:bg-text hover:text-bg"
+          class="inline-flex items-center gap-2 rounded-full bg-text px-6 py-3 text-sm font-bold text-bg transition-colors hover:bg-accent"
         >
           Baixar currículo (PDF)
           <Icon name="mdi:download" class="size-4" aria-hidden="true" />
         </a>
+        <a
+          href="#contato"
+          class="inline-flex items-center gap-1.5 text-sm font-bold text-text transition-colors hover:text-accent"
+        >
+          Entrar em contato
+          <Icon name="mdi:arrow-right" class="size-4" aria-hidden="true" />
+        </a>
+      </div>
+      <div class="mt-6" data-print="hide">
         <SocialLinks socials={profile.socials} />
       </div>
     </div>
-    <Image
-      src={avatar}
-      alt={`Foto de ${profile.firstName} ${profile.lastName}`}
-      width={176}
-      height={176}
-      loading="eager"
-      class="size-32 shrink-0 rounded-full border-4 border-accent-soft object-cover md:size-44"
-    />
+
+    <div class="avatar-ring size-36 shrink-0 rounded-full p-[3px] md:size-56">
+      <div class="size-full rounded-full bg-bg p-1">
+        <Image
+          src={avatar}
+          alt={`Foto de ${profile.firstName} ${profile.lastName}`}
+          width={224}
+          height={224}
+          loading="eager"
+          class="size-full rounded-full object-cover"
+        />
+      </div>
+    </div>
   </div>
+
+  <a
+    href="#experiencias"
+    class="hidden items-center gap-2 self-start pb-6 text-xs font-bold tracking-widest text-muted uppercase transition-colors hover:text-accent md:flex"
+    data-print="hide"
+  >
+    <Icon name="mdi:chevron-down" class="size-4 motion-safe:animate-bounce" aria-hidden="true" />
+    Role para ver mais
+  </a>
 </section>

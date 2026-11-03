@@ -34,3 +34,61 @@
     scroll-margin-top: 5rem;
   }
 }
+
+/* registra o ângulo como propriedade animável; sem isso o gradiente pula em vez de girar */
+@property --ring-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.avatar-ring {
+  background: conic-gradient(
+    from var(--ring-angle),
+    var(--color-accent-bright),
+    var(--color-accent-soft) 35%,
+    var(--color-rule) 60%,
+    var(--color-accent-soft) 80%,
+    var(--color-accent-bright)
+  );
+  animation: ring-spin 10s linear infinite;
+}
+
+@keyframes ring-spin {
+  to {
+    --ring-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-ring {
+    animation: none;
+  }
+}
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  body {
+    background: #fff;
+  }
+  [data-print="hide"] {
+    display: none !important;
+  }
+  #sobre {
+    min-height: auto;
+  }
+  article,
+  li {
+    break-inside: avoid;
+  }
+  /* no papel o link precisa mostrar o endereço */
+  a[href^="http"]:not([data-print="url-shown"])::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: 400;
+    color: var(--color-muted);
+    word-break: break-all;
+  }
+}

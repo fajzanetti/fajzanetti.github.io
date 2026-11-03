@@ -4,12 +4,14 @@ export const profile: Profile = {
   firstName: 'Felipe',
   lastName: 'Zanetti',
   title: 'Desenvolvedor Front-end',
-  city: 'Monte Carmelo/MG',
-  email: 'felipeajzanetti@gmail.com',
+  city: 'Brasil/MG',
+  email: 'felipezanetti.dev@gmail.com',
   summary: [
-    'Desenvolvedor front-end desde 2020. Trabalho com React, Next.js, Svelte, TypeScript e React Native.',
-    'Bacharel em Sistemas de Informação pela Universidade Federal de Uberlândia.',
+    'Desenvolvedor Front-end com experiência no mercado desde 2020.',
+    'Especializado na criação de interfaces modernas, performáticas e escaláveis com React, Next.js, Svelte, TypeScript e React Native.',
+    'Bacharel em Sistemas de Informação pela Universidade Federal de Uberlândia, complementado por diversos cursos de especialização focados em boas práticas, arquitetura de software e experiência do usuário (UX).',
   ],
+
   interests:
     'Meus passatempos são: codar coisas aleatórias por diversão, jogar videogame, ir ao cinema, brincar com minhas cachorrinhas, fazer aquele churrasco com amigos e família e de vez em quando ficar observando as estrelas.',
   socials: [

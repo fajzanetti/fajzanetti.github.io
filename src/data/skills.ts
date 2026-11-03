@@ -17,6 +17,7 @@ export const otherSkills: SkillGroup[] = [
     skills: [
       { name: 'JavaScript', icon: 'simple-icons:javascript' },
       { name: 'SvelteKit', icon: 'simple-icons:svelte' },
+      { name: 'Astro', icon: 'simple-icons:astro' },
       { name: 'React Native', icon: 'mdi:cellphone' },
       { name: 'Node.js', icon: 'simple-icons:nodedotjs' },
       { name: 'Vue.js', icon: 'simple-icons:vuedotjs' },
