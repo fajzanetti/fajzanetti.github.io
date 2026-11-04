@@ -9,7 +9,7 @@ import Section from './Section.astro';
   {experience.map((item) => (
     <ResumeItem
       title={item.role}
-      subtitle={[item.company, item.location].filter(Boolean).join(' · ')}
+      subtitle={[item.company, item.location].filter(Boolean).join(', ')}
       dates={item.periods.map(formatPeriod)}
       description={item.description}
     />

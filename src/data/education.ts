@@ -13,7 +13,8 @@ export const education: Education[] = [
   },
   {
     institution: 'Fundação Carmelitana Mário Palmério (FUCAMP)',
-    degree: 'Sistemas para Internet · graduação interrompida em 2016',
+    degree: 'Sistemas para Internet',
     period: { start: '2015', end: '2016' },
+    note: 'Graduação interrompida em 2016.',
   },
 ];
