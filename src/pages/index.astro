@@ -10,7 +10,7 @@ import Interests from '../components/Interests.astro';
 import Contact from '../components/Contact.astro';
 import { profile } from '../data/profile';
 
-const title = `${profile.firstName} ${profile.lastName} · ${profile.title}`;
+const title = `${profile.firstName} ${profile.lastName}, ${profile.title}`;
 const description = `Currículo de ${profile.firstName} ${profile.lastName}, ${profile.title.toLowerCase()} em ${profile.city}. Experiências, formação, habilidades e contato.`;
 ---
 

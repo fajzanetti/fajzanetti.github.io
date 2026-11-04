@@ -8,7 +8,8 @@ interface Props {
 const { socials } = Astro.props;
 ---
 
-<ul class="flex gap-3">
+<!-- a margem negativa alinha os ícones à coluna de texto, sem reduzir a área de toque -->
+<ul class="-mx-2.5 flex justify-between">
   {socials.map(({ label, url, icon }) => (
     <li>
       <a
@@ -16,9 +17,9 @@ const { socials } = Astro.props;
         aria-label={label}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex size-11 items-center justify-center rounded-full border border-rule bg-surface text-text transition-colors hover:border-accent hover:text-accent"
+        class="flex size-11 items-center justify-center rounded-full text-muted transition-colors hover:text-accent"
       >
-        <Icon name={icon} class="size-5" aria-hidden="true" />
+        <Icon name={icon} class="size-6" aria-hidden="true" />
       </a>
     </li>
   ))}

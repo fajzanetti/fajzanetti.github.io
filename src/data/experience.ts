@@ -4,7 +4,7 @@ export const experience: Experience[] = [
   {
     role: 'Desenvolvedor Front-end',
     company: 'Cods.dev',
-    location: 'Vitória da Conquista/BA · Remoto',
+    location: 'Vitória da Conquista/BA, Remoto',
     description: [
       'Aplicações whitelabel multi-tenant com Next.js 15, React 19, TypeScript, Tailwind CSS e HeroUI, publicadas em Cloudflare Workers.',
       'Jogos em canvas com Svelte 5, SvelteKit, PixiJS e Spine, com máquinas de estado em XState e monorepo com pnpm e Turborepo.',

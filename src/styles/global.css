@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* abaixo dessa altura o hero com o espaçamento padrão passa da primeira dobra */
+@custom-variant short (@media (max-height: 820px));
+
 @theme {
   --color-bg: #fbfaf7;
   --color-surface: #ffffff;
