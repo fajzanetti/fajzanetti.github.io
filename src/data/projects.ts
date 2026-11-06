@@ -36,7 +36,7 @@ export const projects: Project[] = [
     stack: ['React Native', 'TypeScript', 'styled-components'],
     links: [{ label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.uaifmmobile' }],
     image: uaifmApp,
-    imageAlt: 'Tela inicial do app UAI FM em um celular',
+    imageAlt: 'Celular com a tela inicial do app UAI FM: logo, indicador ao vivo e card do programa no ar',
   },
   {
     name: 'Site da UAI FM',
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     stack: ['React 19', 'TypeScript', 'Vite', 'React Router', 'styled-components', 'PWA'],
     links: [{ label: 'uaifm.com.br', url: 'https://uaifm.com.br/' }],
     image: uaifmSite,
-    imageAlt: 'Página inicial do site da UAI FM',
+    imageAlt: 'Página inicial do site da UAI FM com o programa no ar, player e régua de programação',
   },
   {
     name: 'DebugandoED: redesign da interface',
