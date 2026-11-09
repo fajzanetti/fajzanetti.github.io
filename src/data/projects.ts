@@ -3,6 +3,7 @@ import sonorifyLogo from '../assets/projects/sonorify-logo.svg';
 import sonorifyEstudio from '../assets/projects/sonorify-estudio.png';
 import uaifmApp from '../assets/projects/uaifm-app.png';
 import uaifmSite from '../assets/projects/uaifm-site.png';
+import uiComponents from '../assets/projects/ui-components.png';
 
 export const projectsIntro =
   'Três produtos para a mesma rádio comunitária, a UAI FM de Monte Carmelo: o app em 2020, o site em 2021 e o playout do estúdio em 2026.';
@@ -60,5 +61,20 @@ export const projects: Project[] = [
       { label: 'Repositório UFU', url: 'https://repositorio.ufu.br/entities/publication/8f7fd18b-84d5-4cc3-ad9e-8da6ba7786f4' },
       { label: 'GitHub', url: 'https://github.com/fajzanetti/TCC-2023-Debugando-ED' },
     ],
+  },
+  {
+    name: 'UI Components',
+    tagline: 'Componentes React feitos do zero com TypeScript e CSS puro, sem biblioteca de UI.',
+    description: [
+      'Cada componente tem um estilo Normal e um estilo Animado. O Showcase mostra exemplos ao vivo, o código-fonte e a tabela de props.',
+    ],
+    period: { start: '2026', end: 'Atual' },
+    stack: ['React 19', 'TypeScript', 'CSS Modules', 'Vite', 'Vitest'],
+    links: [
+      { label: 'Showcase', url: '/ui-components/' },
+      { label: 'GitHub', url: 'https://github.com/fajzanetti/ui-components' },
+    ],
+    image: uiComponents,
+    imageAlt: 'Página do componente Button no Showcase, com menu lateral, exemplo ao vivo e bloco de código',
   },
 ];

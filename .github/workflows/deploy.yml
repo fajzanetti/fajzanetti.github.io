@@ -19,6 +19,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          repository: fajzanetti/ui-components
+          path: ui-components
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      # O Astro copia public/ para dist/. O Showcase sai em /ui-components/.
+      - name: Build ui-components
+        env:
+          BASE_PATH: /ui-components/
+        run: |
+          npm ci --prefix ui-components
+          npm run build --prefix ui-components
+          mv ui-components/dist public/ui-components
+          rm -rf ui-components
       - uses: withastro/action@v6
         with:
           node-version: 24
