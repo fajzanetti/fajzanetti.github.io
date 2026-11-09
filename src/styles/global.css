@@ -28,6 +28,8 @@
   }
   body {
     @apply bg-bg text-text font-body leading-relaxed antialiased;
+    /* 100vw inclui a barra de rolagem; sem o clip o canvas do hero cria rolagem horizontal */
+    overflow-x: clip;
   }
   h1, h2, h3 {
     @apply font-heading font-bold tracking-tight;
@@ -61,6 +63,20 @@
   to {
     --ring-angle: 360deg;
   }
+}
+
+/* o canvas sai da coluna do main e ocupa a largura da janela */
+.matrix-rain {
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  z-index: -1;
+  width: 100vw;
+  height: 100%;
+  translate: -50% 0;
+  pointer-events: none;
+  /* a máscara dissolve a borda inferior para o hero não terminar em corte seco */
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
