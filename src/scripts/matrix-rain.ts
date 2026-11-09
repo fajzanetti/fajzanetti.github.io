@@ -35,14 +35,20 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
   function drawCell(col: number, row: number, strength: number) {
     if (row < 0 || row >= rows) return;
     context.clearRect(col * CELL, row * CELL, CELL, CELL);
-    const index = row * cols + col;
-    // a cabeça troca o caractere; o resto do rastro preenche as células vazias
-    if (strength === 1 || (strength > 0 && !glyphs[index])) glyphs[index] = randomGlyph();
-    const glyph = glyphs[index];
+    const glyph = glyphs[row * cols + col];
     if (!glyph) return;
     context.globalAlpha = BASE_ALPHA + (HEAD_ALPHA - BASE_ALPHA) * strength;
     context.fillStyle = strength > 0 ? trailColor : baseColor;
     context.fillText(glyph, col * CELL + CELL / 2, row * CELL + CELL / 2);
+  }
+
+  function drawTrailCell(drop: Drop, offset: number, swap: boolean) {
+    const row = drop.row - offset;
+    if (row < 0 || row >= rows) return;
+    const index = row * cols + drop.col;
+    // o rastro não tem lacunas: toda célula vazia recebe um caractere
+    if (swap || !glyphs[index]) glyphs[index] = randomGlyph();
+    drawCell(drop.col, row, 1 - offset / drop.length);
   }
 
   function resetDrop(drop: Drop, row: number) {
@@ -58,7 +64,7 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
   function advance(drop: Drop) {
     drop.row += 1;
     for (let offset = 0; offset < drop.length; offset++) {
-      drawCell(drop.col, drop.row - offset, 1 - offset / drop.length);
+      drawTrailCell(drop, offset, offset === 0);
     }
 
     const tail = drop.row - drop.length;
@@ -101,6 +107,8 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
     tick += 1;
     for (const drop of drops) {
       if (tick % drop.ticksPerRow === 0) advance(drop);
+      // o glitch troca um caractere aleatório do rastro a cada tick
+      drawTrailCell(drop, randomInt(drop.length), true);
     }
   }
 
