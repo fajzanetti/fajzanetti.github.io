@@ -10,9 +10,12 @@ const [lead, ...details] = profile.summary;
 ---
 
 <!-- a altura desconta o header fixo para a seção fechar na primeira dobra -->
-<section id="sobre" class="flex min-h-[calc(100svh-3.25rem)] flex-col md:min-h-[calc(100svh-4.25rem)]">
+<section id="sobre" class="relative isolate flex min-h-[calc(100svh-3.25rem)] flex-col md:min-h-[calc(100svh-4.25rem)]">
+  <canvas data-matrix-rain class="matrix-rain" aria-hidden="true" data-print="hide"></canvas>
+
   <div class="flex flex-1 flex-col-reverse justify-center gap-8 py-8 md:flex-row md:items-center md:gap-16 md:py-16 md:short:py-6">
-    <div class="flex max-w-[580px] flex-col">
+    <!-- o fundo com sombra abre uma área limpa atrás do texto, com borda suave -->
+    <div class="flex max-w-[580px] flex-col bg-bg shadow-[0_0_2.5rem_2rem_var(--color-bg)] print:bg-transparent print:shadow-none">
       <p class="text-sm font-bold text-accent">
         {profile.title}, {profile.city}
       </p>
@@ -61,3 +64,5 @@ const [lead, ...details] = profile.summary;
     Role para ver mais
   </a>
 </section>
+
+<script src="../scripts/matrix-rain.ts"></script>
