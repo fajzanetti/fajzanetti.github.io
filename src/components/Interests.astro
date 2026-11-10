@@ -1,8 +1,23 @@
 ---
 import { profile } from '../data/profile';
+import ProjectLinks from './ProjectLinks.astro';
 import Section from './Section.astro';
 ---
 
 <Section id="interesses" title="Interesses">
-  <p class="max-w-[680px] text-lg">{profile.interests}</p>
+  <dl class="divide-y divide-rule">
+    {profile.interests.map(({ title, text, link }) => (
+      <div class="grid gap-1 py-4 md:grid-cols-[170px_1fr] md:gap-8">
+        <dt class="text-sm font-bold text-accent md:pt-0.5">{title}</dt>
+        <dd class="text-[15px]">
+          <p>{text}</p>
+          {link && (
+            <div class="mt-2">
+              <ProjectLinks links={[link]} />
+            </div>
+          )}
+        </dd>
+      </div>
+    ))}
+  </dl>
 </Section>

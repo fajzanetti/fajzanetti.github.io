@@ -52,6 +52,12 @@ export interface Social {
   primary?: boolean;
 }
 
+export interface Interest {
+  title: string;
+  text: string;
+  link?: Link;
+}
+
 export interface Profile {
   firstName: string;
   lastName: string;
@@ -59,7 +65,7 @@ export interface Profile {
   city: string;
   email: string;
   summary: string[];
-  interests: string;
+  interests: Interest[];
   socials: Social[];
   cvPath: string;
 }
