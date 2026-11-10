@@ -53,19 +53,6 @@ export const radioProjects: Project[] = [
 
 export const otherProjects: Project[] = [
   {
-    name: 'DebugandoED: redesign da interface',
-    tagline: 'Trabalho de conclusão de curso em Sistemas de Informação, UFU.',
-    description: [
-      'Redesign da interface de um sistema de ensino de estruturas de dados e pesquisa com estudantes e profissionais sobre a proposta.',
-    ],
-    period: { start: '2023' },
-    stack: ['Pesquisa com usuários', 'Heurísticas de usabilidade', 'Prototipação'],
-    links: [
-      { label: 'Repositório UFU', url: 'https://repositorio.ufu.br/entities/publication/8f7fd18b-84d5-4cc3-ad9e-8da6ba7786f4' },
-      { label: 'GitHub', url: 'https://github.com/fajzanetti/TCC-2023-Debugando-ED' },
-    ],
-  },
-  {
     name: 'UI Components',
     tagline: 'Componentes React feitos do zero com TypeScript e CSS puro, sem biblioteca de UI.',
     description: [
@@ -79,5 +66,18 @@ export const otherProjects: Project[] = [
     ],
     image: uiComponents,
     imageAlt: 'Página do componente Button no Showcase, com menu lateral, exemplo ao vivo e bloco de código',
+  },
+  {
+    name: 'DebugandoED: redesign da interface',
+    tagline: 'Trabalho de conclusão de curso em Sistemas de Informação, UFU.',
+    description: [
+      'Redesign da interface de um sistema de ensino de estruturas de dados e pesquisa com estudantes e profissionais sobre a proposta.',
+    ],
+    period: { start: '2023' },
+    stack: ['Pesquisa com usuários', 'Heurísticas de usabilidade', 'Prototipação'],
+    links: [
+      { label: 'Repositório UFU', url: 'https://repositorio.ufu.br/entities/publication/8f7fd18b-84d5-4cc3-ad9e-8da6ba7786f4' },
+      { label: 'GitHub', url: 'https://github.com/fajzanetti/TCC-2023-Debugando-ED' },
+    ],
   },
 ];
