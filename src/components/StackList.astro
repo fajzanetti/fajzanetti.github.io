@@ -1,0 +1,13 @@
+---
+interface Props {
+  stack: string[];
+  /** troca as cores para o fundo --color-ink */
+  onInk?: boolean;
+}
+const { stack, onInk = false } = Astro.props;
+const tone = onInk ? 'border-bg/25 text-bg/80 print:border-rule print:text-muted' : 'border-rule text-muted';
+---
+
+<ul class="flex flex-wrap gap-1.5">
+  {stack.map((item) => <li class:list={['rounded-full border px-2.5 py-0.5 text-xs', tone]}>{item}</li>)}
+</ul>

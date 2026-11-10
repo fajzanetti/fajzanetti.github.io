@@ -13,6 +13,8 @@
   --color-accent-bright: #0c9c42;
   --color-accent-soft: #e4f6ea;
   --color-rule: #e2e4e1;
+  /* fundo escuro do projeto em destaque; --color-bg sobre ele passa AAA */
+  --color-ink: #10231a;
   --font-heading: "Fraunces", Georgia, serif;
   --font-body: "Mulish", system-ui, sans-serif;
 }

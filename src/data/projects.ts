@@ -26,7 +26,7 @@ export const featuredProject: Project = {
   note: 'Código privado. Em uso no estúdio da UAI FM.',
 };
 
-export const projects: Project[] = [
+export const radioProjects: Project[] = [
   {
     name: 'UAI FM para Android',
     tagline: 'App oficial da rádio: ao vivo, programação e contato com o estúdio.',
@@ -49,6 +49,9 @@ export const projects: Project[] = [
     image: uaifmSite,
     imageAlt: 'Página inicial do site da UAI FM com o programa no ar, player e régua de programação',
   },
+];
+
+export const otherProjects: Project[] = [
   {
     name: 'DebugandoED: redesign da interface',
     tagline: 'Trabalho de conclusão de curso em Sistemas de Informação, UFU.',

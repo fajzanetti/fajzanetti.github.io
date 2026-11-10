@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import type { Project } from '../data/types';
+import { formatPeriod } from '../lib/format';
+import ProjectLinks from './ProjectLinks.astro';
+import StackList from './StackList.astro';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+
+<article class="grid gap-x-8 gap-y-1 border-t border-rule py-8 md:grid-cols-[170px_1fr]">
+  <p class="text-sm font-bold whitespace-nowrap text-accent md:pt-1.5">{formatPeriod(project.period)}</p>
+  <div class="flex items-start gap-8">
+    <div class="grow">
+      <h3 class="text-[22px] leading-snug">{project.name}</h3>
+      <p class="mt-1 text-[15px]">{project.tagline}</p>
+      {project.description.map((text) => <p class="mt-2 text-[15px] text-muted">{text}</p>)}
+      <div class="my-4">
+        <StackList stack={project.stack} />
+      </div>
+      <ProjectLinks links={project.links} />
+    </div>
+    {project.image && (
+      <Image
+        src={project.image}
+        alt={project.imageAlt ?? ''}
+        width={440}
+        height={275}
+        class="mt-1 hidden w-[220px] shrink-0 rounded-xl border border-rule sm:block"
+      />
+    )}
+  </div>
+</article>

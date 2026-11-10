@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Link } from '../data/types';
+
+interface Props {
+  links: Link[];
+}
+const { links } = Astro.props;
+---
+
+<ul class="flex flex-wrap gap-x-5 gap-y-1">
+  {links.map(({ label, url }) => (
+    <li>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-sm font-bold text-accent underline underline-offset-2 hover:text-text"
+      >
+        {label}
+        <Icon name="mdi:open-in-new" class="size-3.5" aria-hidden="true" />
+      </a>
+    </li>
+  ))}
+</ul>
