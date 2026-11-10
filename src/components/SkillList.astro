@@ -1,11 +1,19 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { mainStack, otherSkills } from '../data/skills';
+import LogoLoop from './LogoLoop.astro';
 import Section from './Section.astro';
+
+// a faixa mostra só logos de marca, sem repetir o mesmo logo
+const logos = [...mainStack, ...otherSkills.flatMap((group) => group.skills)].filter(
+  ({ icon }, index, all) => icon.startsWith('simple-icons:') && all.findIndex((skill) => skill.icon === icon) === index,
+);
 ---
 
 <Section id="habilidades" title="Habilidades">
-  <h3 class="mb-4 text-lg">Stack principal</h3>
+  <LogoLoop skills={logos} />
+
+  <h3 class="mt-6 mb-4 text-lg">Stack principal</h3>
   <ul class="grid grid-cols-2 gap-3 sm:grid-cols-4">
     {mainStack.map(({ name, icon }) => (
       <li class="flex flex-col items-center gap-3 rounded-2xl border border-rule bg-surface px-3 py-5 text-center">

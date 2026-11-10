@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Skill } from '../data/types';
+
+interface Props {
+  skills: Skill[];
+}
+const { skills } = Astro.props;
+---
+
+<!-- a lista de habilidades abaixo já traz os nomes; a faixa é decorativa -->
+<!-- o nome fica dentro da faixa porque o overflow corta o que passa da borda -->
+<div class="logo-loop" aria-hidden="true" data-print="hide" data-logo-loop>
+  <div class="logo-loop-track" data-logo-loop-track>
+    {/* a segunda cópia preenche o espaço quando a primeira sai da tela */}
+    {[0, 1].map(() => (
+      <ul class="flex shrink-0 items-center">
+        {skills.map(({ name, icon }) => (
+          <li class="group relative px-6 pt-2 pb-9 text-muted transition-colors duration-200 hover:text-accent">
+            <Icon name={icon} class="size-8 transition-transform duration-200 group-hover:scale-120" />
+            <span class="pointer-events-none absolute bottom-0.5 left-1/2 -translate-x-1/2 translate-y-1 rounded-full border border-rule bg-surface px-2.5 py-0.5 text-xs font-bold whitespace-nowrap text-text opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100">
+              {name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
+
+<script src="../scripts/logo-loop.ts"></script>

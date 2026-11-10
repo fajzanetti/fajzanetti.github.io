@@ -9,9 +9,9 @@ import Section from './Section.astro';
 <Section id="projetos" title="Projetos">
   <p class="-mt-6 mb-8 max-w-[620px] text-lg text-muted">{projectsIntro}</p>
   <!-- os produtos da rádio passam da coluna do main para as capturas ganharem tamanho -->
-  <div class="grid gap-5 min-[1200px]:-mx-[120px] print:mx-0">
+  <div class="grid gap-5 min-[1200px]:-mx-[120px] print:mx-0" data-reveal-children>
     <ProjectFeatured project={featuredProject} />
-    <div class="grid gap-5 md:grid-cols-2">
+    <div class="grid gap-5 md:grid-cols-2" data-reveal-children>
       {radioProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </div>

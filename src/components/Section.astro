@@ -6,7 +6,10 @@ interface Props {
 const { id, title } = Astro.props;
 ---
 
-<section id={id} class="border-t border-rule py-16">
+<!-- reveal.ts anima cada filho direto da seção quando ele entra na tela -->
+<section id={id} class="border-t border-rule py-16" data-reveal-children>
   <h2 class="mb-10 text-3xl md:text-[34px]">{title}</h2>
   <slot />
 </section>
+
+<script src="../scripts/reveal.ts"></script>
