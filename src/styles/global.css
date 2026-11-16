@@ -81,6 +81,15 @@
   mask-image: linear-gradient(to bottom, #000 55%, transparent);
 }
 
+/* o script do head marca o data-intro no html antes do primeiro paint; sem a marca, a abertura fica oculta */
+.intro {
+  display: none;
+}
+
+html[data-intro] .intro {
+  display: grid;
+}
+
 /* reveal.ts marca o item abaixo da dobra como "hidden" e troca para "visible" quando ele entra na tela */
 [data-reveal] {
   transition:
