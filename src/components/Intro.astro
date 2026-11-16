@@ -1,0 +1,12 @@
+---
+import logo from '../assets/logo-fz.svg?raw';
+
+// o cabeçalho já usa os ids fz-band e fz-shape; esta segunda cópia precisa de ids próprios
+const markup = logo.replaceAll('fz-band', 'fz-intro-band').replaceAll('fz-shape', 'fz-intro-shape');
+---
+
+<div class="intro fixed inset-0 z-50 place-items-center bg-bg" aria-hidden="true" data-intro-overlay data-print="hide">
+  <span class="block w-44 md:w-64 [&>svg]:h-auto [&>svg]:w-full" set:html={markup} />
+</div>
+
+<script src="../scripts/intro.ts"></script>
