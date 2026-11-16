@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import logo from '../assets/logo-fz.svg?raw';
 import { profile } from '../data/profile';
 import { nav } from '../data/nav';
 
@@ -8,8 +9,8 @@ const fullName = `${profile.firstName} ${profile.lastName}`;
 
 <header class="sticky top-0 z-10 border-b border-rule bg-bg/95 backdrop-blur" data-print="hide">
   <div class="relative mx-auto flex max-w-[880px] items-center justify-between gap-6 px-6 py-3 md:py-5">
-    <a href="#sobre" class="font-heading text-[28px] leading-none font-bold text-text" aria-label={`FZ, ${fullName}, voltar ao início`}>
-      {profile.firstName[0]}<span class="text-accent-bright">{profile.lastName[0]}</span>
+    <a href="#sobre" aria-label={`FZ, ${fullName}, voltar ao início`}>
+      <span data-logo class="block h-7 [&>svg]:h-full [&>svg]:w-auto" set:html={logo} />
     </a>
 
     <button
@@ -47,3 +48,4 @@ const fullName = `${profile.firstName} ${profile.lastName}`;
 
 <script src="../scripts/menu.ts"></script>
 <script src="../scripts/scrollspy.ts"></script>
+<script src="../scripts/logo.ts"></script>
