@@ -1,11 +1,16 @@
+import { mapLogoCells } from './rain-logo';
+
 const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/{}[]()=+-*#$;';
 const CELL = 20;
 const FONT = '13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+const LOGO_FONT = `bold ${FONT}`;
 const TICK_MS = 50;
 const BASE_ALPHA = 0.15;
 const HEAD_ALPHA = 0.65;
 const EMPTY_RATIO = 0.45;
 const COLS_PER_DROP = 5;
+const LOGO_MS = 4000;
+const LOGO_SWAP_RATIO = 0.04;
 
 interface Drop {
   col: number;
@@ -28,6 +33,8 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
   let lastTick = 0;
   let tick = 0;
   let visible = false;
+  // cor de cada célula da logo; a célula fora da logo fica sem entrada
+  let logo = new Map<number, string>();
 
   const randomInt = (max: number) => Math.floor(Math.random() * max);
   const randomGlyph = () => GLYPHS[randomInt(GLYPHS.length)];
@@ -35,11 +42,39 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
   function drawCell(col: number, row: number, strength: number) {
     if (row < 0 || row >= rows) return;
     context.clearRect(col * CELL, row * CELL, CELL, CELL);
-    const glyph = glyphs[row * cols + col];
+    const index = row * cols + col;
+    const logoColor = logo.get(index);
+    // a logo não tem lacunas: toda célula dela recebe um caractere
+    if (logoColor && !glyphs[index]) glyphs[index] = randomGlyph();
+    const glyph = glyphs[index];
     if (!glyph) return;
-    context.globalAlpha = BASE_ALPHA + (HEAD_ALPHA - BASE_ALPHA) * strength;
-    context.fillStyle = strength > 0 ? trailColor : baseColor;
+    context.globalAlpha = logoColor ? 1 : BASE_ALPHA + (HEAD_ALPHA - BASE_ALPHA) * strength;
+    context.fillStyle = logoColor ?? (strength > 0 ? trailColor : baseColor);
+    context.font = logoColor ? LOGO_FONT : FONT;
     context.fillText(glyph, col * CELL + CELL / 2, row * CELL + CELL / 2);
+  }
+
+  const drawLogoCell = (index: number) => drawCell(index % cols, Math.floor(index / cols), 0);
+
+  function hideLogo() {
+    const cells = [...logo.keys()];
+    logo = new Map();
+    for (const index of cells) {
+      // a logo preencheu todas as células dela; a saída devolve a densidade da chuva
+      if (Math.random() < EMPTY_RATIO) glyphs[index] = '';
+      drawLogoCell(index);
+    }
+    canvas.removeAttribute('data-rain-logo');
+  }
+
+  function showLogo() {
+    if (logo.size) return;
+    logo = mapLogoCells(canvas.clientWidth, canvas.clientHeight, CELL);
+    if (!logo.size) return;
+    logo.forEach((_, index) => drawLogoCell(index));
+    // o CSS usa a marca para esconder o conteúdo do hero e abrir a máscara do canvas
+    canvas.setAttribute('data-rain-logo', '');
+    setTimeout(hideLogo, LOGO_MS);
   }
 
   function drawTrailCell(drop: Drop, offset: number, swap: boolean) {
@@ -87,6 +122,8 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
     cols = Math.ceil(clientWidth / CELL);
     rows = Math.ceil(clientHeight / CELL);
     glyphs = Array.from({ length: cols * rows }, () => (Math.random() < EMPTY_RATIO ? '' : randomGlyph()));
+    // a grade mudou; a logo visível precisa das células novas
+    if (logo.size) logo = mapLogoCells(clientWidth, clientHeight, CELL);
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) drawCell(col, row, 0);
     }
@@ -110,6 +147,12 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
       // o glitch troca um caractere aleatório do rastro a cada tick
       drawTrailCell(drop, randomInt(drop.length), true);
     }
+    // a logo troca parte dos caracteres a cada tick, como o rastro
+    logo.forEach((_, index) => {
+      if (Math.random() > LOGO_SWAP_RATIO) return;
+      glyphs[index] = randomGlyph();
+      drawLogoCell(index);
+    });
   }
 
   function toggle() {
@@ -124,6 +167,8 @@ function startMatrixRain(canvas: HTMLCanvasElement, context: CanvasRenderingCont
     toggle();
   }).observe(canvas);
   reducedMotion.addEventListener('change', toggle);
+  // logo.ts dispara o evento no quinto clique seguido
+  canvas.addEventListener('fz-logo', showLogo);
 }
 
 const canvas = document.querySelector<HTMLCanvasElement>('[data-matrix-rain]');

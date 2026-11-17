@@ -67,6 +67,13 @@
   }
 }
 
+/* registra o fim da parte opaca da máscara como propriedade animável */
+@property --rain-fade {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 55%;
+}
+
 /* o canvas sai da coluna do main e ocupa a largura da janela */
 .matrix-rain {
   position: absolute;
@@ -78,7 +85,41 @@
   translate: -50% 0;
   pointer-events: none;
   /* a máscara dissolve a borda inferior para o hero não terminar em corte seco */
-  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 var(--rain-fade), transparent);
+  transition: --rain-fade 0.3s;
+}
+
+/* matrix-rain.ts marca o canvas enquanto a chuva desenha a logo; a máscara abre e o conteúdo do hero some */
+.matrix-rain[data-rain-logo] {
+  --rain-fade: 100%;
+}
+
+.matrix-rain + * {
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+}
+
+.matrix-rain[data-rain-logo] + * {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* logo.ts marca o html com data-glitch; os títulos repetem o glitch da logo, com sombras no lugar das cópias */
+html[data-glitch] :is(h1, h2, h3) {
+  animation: title-glitch 0.7s step-end;
+}
+
+@keyframes title-glitch {
+  0%, 31.43%, 71.43%, 85.71% { translate: none; text-shadow: none; clip-path: none; }
+  5.71% { translate: 0.02em 0; text-shadow: -0.05em 0 var(--color-accent-bright), 0.05em 0 var(--color-ink); }
+  14.29% { translate: -0.03em 0; text-shadow: 0.06em -0.01em var(--color-accent-bright), -0.06em 0.01em var(--color-ink); }
+  22.86% { translate: 0.02em 0; text-shadow: 0.04em 0 var(--color-accent-bright), -0.04em 0 var(--color-ink); }
+  37.14% { translate: 0.08em 0; text-shadow: -0.07em 0 var(--color-accent-bright), 0.07em 0 var(--color-ink); clip-path: inset(15% 0 50% 0); }
+  45.71% { translate: -0.1em 0; text-shadow: 0.08em 0.01em var(--color-accent-bright), -0.08em -0.01em var(--color-ink); clip-path: inset(55% 0 12% 0); }
+  54.29% { translate: 0.015em 0; text-shadow: -0.09em 0 var(--color-accent-bright), 0.09em 0 var(--color-ink); clip-path: none; }
+  62.86% { translate: none; text-shadow: none; clip-path: inset(40% 0 40% 0); }
+  80% { translate: -0.02em 0; text-shadow: -0.03em 0 var(--color-accent-bright), 0.03em 0 var(--color-ink); clip-path: none; }
 }
 
 /* o script do head marca o data-intro no html antes do primeiro paint; sem a marca, a abertura fica oculta */
