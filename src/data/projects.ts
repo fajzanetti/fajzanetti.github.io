@@ -3,7 +3,7 @@ import sonorifyLogo from '../assets/projects/sonorify-logo.svg';
 import sonorifyEstudio from '../assets/projects/sonorify-estudio.png';
 import uaifmApp from '../assets/projects/uaifm-app.png';
 import uaifmSite from '../assets/projects/uaifm-site.png';
-import uiComponents from '../assets/projects/ui-components.png';
+// import uiComponents from '../assets/projects/ui-components.png';
 
 export const projectsIntro =
   'Três produtos para a mesma rádio comunitária, a UAI FM de Monte Carmelo: o app em 2020, o site em 2021 e o playout do estúdio em 2026.';
@@ -53,20 +53,32 @@ export const radioProjects: Project[] = [
 
 export const otherProjects: Project[] = [
   {
-    name: 'UI Components',
-    tagline: 'Componentes React feitos do zero com TypeScript e CSS puro, sem biblioteca de UI.',
+    name: 'Mini Keyboard',
+    tagline: 'App desktop open source que configura o mini teclado CH57x, com teclas e knobs programáveis.',
     description: [
-      'Cada componente tem um estilo Normal e um estilo Animado. O Showcase mostra exemplos ao vivo, o código-fonte e a tabela de props.',
+      'Lê e grava o mapeamento direto no mini teclado pela hidapi, sem ferramenta externa.',
+      'Edita as ações das teclas e dos knobs por camada, captura atalhos e define o modo e a cor do LED.',
     ],
     period: { start: '2026', end: 'Atual' },
-    stack: ['React 19', 'TypeScript', 'CSS Modules', 'Vite', 'Vitest'],
-    links: [
-      { label: 'Showcase', url: '/ui-components/' },
-      { label: 'GitHub', url: 'https://github.com/fajzanetti/ui-components' },
-    ],
-    image: uiComponents,
-    imageAlt: 'Página do componente Button no Showcase, com menu lateral, exemplo ao vivo e bloco de código',
+    stack: ['Python', 'GTK4', 'libadwaita', 'hidapi', 'YAML'],
+    links: [{ label: 'GitHub', url: 'https://github.com/fajzanetti/Mini-KeyBoard' }],
   },
+  // o UI Components fica oculto por enquanto
+  // {
+  //   name: 'UI Components',
+  //   tagline: 'Componentes React feitos do zero com TypeScript e CSS puro, sem biblioteca de UI.',
+  //   description: [
+  //     'Cada componente tem um estilo Normal e um estilo Animado. O Showcase mostra exemplos ao vivo, o código-fonte e a tabela de props.',
+  //   ],
+  //   period: { start: '2026', end: 'Atual' },
+  //   stack: ['React 19', 'TypeScript', 'CSS Modules', 'Vite', 'Vitest'],
+  //   links: [
+  //     { label: 'Showcase', url: '/ui-components/' },
+  //     { label: 'GitHub', url: 'https://github.com/fajzanetti/ui-components' },
+  //   ],
+  //   image: uiComponents,
+  //   imageAlt: 'Página do componente Button no Showcase, com menu lateral, exemplo ao vivo e bloco de código',
+  // },
   {
     name: 'DebugandoED: redesign da interface',
     tagline: 'Trabalho de conclusão de curso em Sistemas de Informação, UFU.',
