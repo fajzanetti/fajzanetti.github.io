@@ -14,8 +14,10 @@ export const profile: Profile = {
   interests: [
     {
       title: 'Código',
-      text: 'Crio e refatoro componentes por diversão. O acervo virou o projeto UI Components.',
-      link: { label: 'Showcase', url: '/ui-components/' },
+      text: 'Crio e refatoro componentes por diversão.',
+      // o UI Components fica oculto por enquanto
+      // text: 'Crio e refatoro componentes por diversão. O acervo virou o projeto UI Components.',
+      // link: { label: 'Showcase', url: '/ui-components/' },
     },
     {
       title: 'Jogos',
